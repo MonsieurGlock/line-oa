@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Test</h1>
+    
+    <button id="storeButton">Click to store</button>
+    <button id="showButton">Click to store</button>
+    <p id="demoLocal"></p>
+    <p id="demoSession"></p>
+
+    <script>
+        document.getElementById("storeButton").addEventListener("click", storeData);
+        document.getElementById("showButton").addEventListener("click", showData);
+
+
+        function storeData() {
+            localStorage.setItem("data", "This data store in localStorage")
+            sessionStorage.setItem("data", "This data store in sessionStorage")
+        }
+
+        function showData() {
+            const localStorageData = localStorage.getItem("data")
+            const sessionStorageData = sessionStorage.getItem("data")
+
+            document.getElementById("demoLocal").innerHTML = "Local storage: " + localStorageData
+            document.getElementById("demoSession").innerHTML = "Session storage: " + sessionStorageData
+            
+        }
+    </script>
+</body>
+</html>
